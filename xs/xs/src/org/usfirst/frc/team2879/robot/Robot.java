@@ -7,8 +7,10 @@
 
 package org.usfirst.frc.team2879.robot;
 
-import org.usfirst.frc.team2879.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2879.robot.commands.driveGo;
+import org.usfirst.frc.team2879.robot.subsystems.Cone;
 import org.usfirst.frc.team2879.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2879.robot.subsystems.Lift;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -19,16 +21,20 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends TimedRobot {
 	public static final DriveTrain drivetrain = new DriveTrain();
+	public static final Lift lift = new Lift();
+	public static final Cone cone = new Cone();
+	
 	public static OI oi;
 
 	Command m_autonomousCommand;
+	
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addDefault("Default Auto", new driveGo());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		
 		
