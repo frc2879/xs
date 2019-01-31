@@ -8,6 +8,7 @@
 package org.usfirst.frc.team2879.robot;
 
 import org.usfirst.frc.team2879.robot.commands.driveGo;
+import org.usfirst.frc.team2879.robot.commands.liftMove;
 import org.usfirst.frc.team2879.robot.subsystems.Cone;
 import org.usfirst.frc.team2879.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2879.robot.subsystems.Lift;
@@ -34,7 +35,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new driveGo());
+		chooser.addDefault("DriveGo", new driveGo(0));
+		chooser.addDefault("LiftMove", new liftMove(0));
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		
 		
